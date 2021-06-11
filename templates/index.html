@@ -6,6 +6,7 @@
 <center>
 	<h1>Heart Stroke Prediction</h1>
 <img src='\static\images.jpg' alt="Heart"><br><br>
+<h3>{{ prediction_text }}<h3>
 <div class="container text-center">
 	<form action="/predict" method="POST"><!--/predict uthaya @app.route se from app.py file-->
 	<table>	
@@ -75,14 +76,14 @@
 		<button class='btn btn-success bg-nav'>Predict</button><!--btn-success due to this button color is green-->
 	</form>
 	
-	<h3>{{ prediction_text }}<h3>
+	
 </div>
 <div class="row">
 	{% if label %}
 		{% if label==1 %}
-			<h2 style="color":green>Sorry you might have Heart Stroke</h2>
+			<h2 style="color":green>Chance of Heart Stroke is -->YES</h2>
 		{% else %}
-			<h2 style="color":red>Congratulations You dont have Heart Stroke</h2>
+			<h2 style="color":red>Chance of Heart Heart Stroke is-->NO</h2>
 		{% endif %}
 	{% endif %}
 </div>
