@@ -1,0 +1,92 @@
+<html>
+<head>
+	<title>Heart Stroke Prediction</title>
+</head>
+<body style="background-color:orange;">
+<center>
+	<h1>Heart Stroke Prediction</h1>
+<img src='\static\images.jpg' alt="Heart"><br><br>
+<div class="container text-center">
+	<form action="/predict" method="POST"><!--/predict uthaya @app.route se from app.py file-->
+	<table>	
+	<tr>
+		<td align="right"><h3>Enter Age</h3></td>
+		<td align="left"><input type="text" name="age" required="required" placeholder="Enter Age"></td>		
+	</tr>
+	<tr>
+		<td align="right"><h3>Enter Hypertension</h3></td>
+		<td align="left"><input id="hypertension" name="hypertension" type="number" placeholder="Enter Either 0 or 1" required="required"></td>
+	</tr>
+	<tr>
+		<td align="right"><h3>Enter Heart_Disease</h3></td>
+		<td align="left"><input id="heart_disease" name="heart_disease" type="number" placeholder="Enter Either 0 or 1" required="required"></td>
+	</tr>
+	<tr>
+		<td align="right"><h3>Enter Average_Glucose_Level</h3></td>
+		<td align="left"><input id="glucose" name="glucose" step="any" type="number" placeholder="Enter Average_Glucose_level" ></td>
+	</tr>	
+	<tr>
+		<td align="right"><h3>Enter Body_mass_index(BMI)</h3></td>
+		<td align="left"><input id="bmi" name="bmi" step="any" type="number" placeholder="Enter BMI" ></td>
+	</tr>
+	<tr>
+		<td align="right"><h3>Select Gender</h3></td>
+		<td align="left"><select name="gender" id="gender" required="required">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="2">Other</option>
+            	</select></td>
+	</tr>
+	<tr>	
+		<td align="right"><h3>Are you Married?</h3></td>
+		<td align="left"><select name="married" id="married" required="required">
+                <option value="0">Married</option>
+                <option value="1">UnMarried</option>
+            	</select></td>
+	</tr>
+	<tr>
+		<td align="right"><h3>Select Work Type</h3></td>
+		<td align="left"><select name="work_type" id="work_type" required="required">
+                <option value="0">Never Worked</option>
+                <option value="1">Private</option>
+		<option value="2">Self-Employed</option>
+                <option value="3">Govt Job</option>
+		<option value="4">Children</option>
+            	</select></td>
+	</tr>
+	<tr>
+		<td align="right"><h3>Select Residence_Type</h3></td>
+		<td align="left"><select name="residence" id="residence" required="required">
+                <option value="0">Urban</option>
+                <option value="1">Rural</option>
+            	</select></td>
+	</tr>
+	<tr>
+		<td align="right"><h3>Select Smoking_Status</h3></td>
+		<td align="left"><select name="smoking" id="smoking" required="required">
+                <option value="0">Formerly smoked</option>
+                <option value="1">Never smoked</option>
+		<option value="2">smokes</option>
+                <option value="3">Unknown</option>
+            	</select></td>
+	</tr>
+	</table>
+		<br><br>
+		<button class='btn btn-success bg-nav'>Predict</button><!--btn-success due to this button color is green-->
+	</form>
+	
+	<h3>{{ prediction_text }}<h3>
+</div>
+<div class="row">
+	{% if label %}
+		{% if label==1 %}
+			<h2 style="color":green>Sorry you might have Heart Stroke</h2>
+		{% else %}
+			<h2 style="color":red>Congratulations You dont have Heart Stroke</h2>
+		{% endif %}
+	{% endif %}
+</div>
+	
+</center>
+</body>
+</html>
